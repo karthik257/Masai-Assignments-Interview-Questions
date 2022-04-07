@@ -1,0 +1,25 @@
+What are some new things happening in the web?
+Progressive Web Apps 
+ One can install a PWA on his/her device be it a desktop or mobile. However, a web app is designed to run inside of a web browser and cannot be installed on a device. Hence it is preferable for users considering this aspect.
+
+
+Explain a project that you have built?
+I have developed a few basic HTML, CSS and JS websites on my own. But, it would be my honor to explain a collaborative project that I was a part of during my Masai journey. We were a team of 3 and we cloned Policy Bazar website. In this project, the user can login and logout, check various health insurance, filter them and also sort it by various options. I contributed towards home page and the filter functionality.
+
+Whats something exciting that you have built?
+I was very excited when I came across a piano game for kids in android and I thought let me try to build similar using web technology. So, I used basic html, css and js to build a project in which the user can press few keys on the keyboard, or click on the keys displayed on the screen to generate various sounds. It was very fun to build and show it to my friends and family.
+
+What are you most excited about?
+I am excited about learning new things and explore the world of development. I want to know how it feels to make a real website for users. I am excited about put my efforts of what I've learnt so far. I am excited to be a real professional
+
+
+Why do coding standards matter? What are some patterns you follow?
+Coding standards matters because it is always readable for developers, it's error free, it's clean. Conding standards is used to create readable and consistent code for developers. It's writing a code in defined and in a procedure which every developer follows. I too like to follow some patterns, like clean code, error free codes, commenting the code etc., so that when some other developer reads my code, he or she should be able to understand it
+
+How do you go about managing responsive websites?
+I would first research about who is my target users and in which device they would be using my website. Based on that, I will go with mobile first approach, if the users use mobile to access my website, otherwise I would go with desktop first approach. Regardless of whether I choose mobile first or desktop first, I will make sure that it is responsive before it reaches the users.
+
+
+What do you care about the most when you write software?
+I care about clean code, short code, bug free code, readable code and also comments on respective places with proper file names and structure.
+

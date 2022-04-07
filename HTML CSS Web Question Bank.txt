@@ -1,0 +1,102 @@
+Q1: Explain briefly what happens when you hit a url? explain DNS lookup.
+When we type a URL in your browser and press Enter
+Browser looks up IP address for the domain
+Browser initiates TCP connection with the server
+Browser sends the HTTP request to the server
+Server processes request and sends back a response
+Browser renders the content
+A DNS lookup, in a general sense, is the process by which a DNS record is returned from a DNS server. This is like looking up a phone number in a phone book - that is why it is referred to as a "lookup". Interconnected computers, servers and smart phones need to know how to translate the email addresses and domain names people use into meaningful numerical addresses. A DNS lookup performs this function.
+
+
+Q2: What is a URLs full form? Explain what a url is and the four parts it consists of The protocol in use, The hostname of the server, The location of the file & The arguments to the file.
+Ans: URL's full form is Uniform Resource Locator. It is a unique identifier used to locate a resource on the internet. A url contains domain name which is checked by browser in it's cache and DNS server later returns the answer. 
+There are 4 components of url : Protocol, domain, path query & Domain. 
+i> The protocol of the url indicates the method that will be used for transimitting and exchanging the data. The most used protocol is http & https. 
+ii> The domain is the hostname of a url. Every domain is connected to an IP address of a website.
+iii> The path specifies the file or any other resource location. 
+iv> The query parameter is used for internal searches. It mainly preceded by the help of question mark. For example searching an id " ...?_id='343234' "
+
+Q3: What is HTTP protocol?
+Ans: The hypertext Transfer Protocol is an application protocol for distributive, collaborative and hypermedia information that allows users to communicate with World Wide Web. HTTP gives users a way to interact with web resources such as HTML file by transmitting hypertext messages between clients and servers.
+
+Q4: What is TCP Protocol?
+Ans: Transmission Control Protocol is used to ensure reliable transmission of of data packets. TCP solves many problems related to send/receiving packets like corrupted packets, loss of packets, out of order packets. When sending packet using TCP the data portion of each packet is formatted as TCP segment. Each TCP segment contains header and a data. the TCP header contains more than just UDP header, it contains source port number, destination port number, and checksum. The steps for the processing of transmitting data through TCP are: 
+i> Establishing Data: When two computer wants to transmit data they first do three way handshake. In the three way handshake there not contain much of any data instead they just send SYN and ACK which are part of header.
+ii> Send Packets of data: The computer send data packets to other computer and second computer replies with proper answer to the query. They both communicate with 0s and 1s and keep the tracks of data packets. 
+iii> Close the connection: When computer becomes idle and there is no more transmission of data packets the computer closes the connection by sending FIN and Receiving FIN and ACK. 
+
+Q5: Explain all the different HTTP methods?
+Ans: There are 8 different HTTP methods: 
+i> GET: The GET method is retrieves the data from the server. In requests using GET, their is no effect on  the data.
+ii> HEAD: It is same as GET but it only tranfers the status line and header section only.
+iii> POST: This is used to post data to in the data like files, customer information, etc. 
+iv> PUT: It is used to replace all the current data of the target resource with uploaded content.
+v> DELETE: Removes all the data related to the target given in the url. 
+vi> CONNECT: it establishes a tunnel to the server identified by the given url.
+vii> OPTIONS: it tells about communication options we have for the targeted resource.
+viii> TRACE: This test allows to trace the path to the targeted resource, to identify points of failure.
+iX> PATCH: It is used to partially modify a targeted resource. 
+
+Q6: What are HTTP headers?
+Ans: HTTP headers are used to pass additional information between the clients and the server through the request and response header. All the header fields are separated by semi-colon like a key value pair. There are few header which can contain comments too. 
+
+Q7: What are some HTTP response codes? what does it mean? 2xx, 3xx, 4xx, 5xx.
+Ans: HTTP response codes are three digit response from the server to the browser side request. These status codes serve as a mean of communication between server and the internet browser and there are multiple assigned codes for HTTP response. Some of them are: 101, 401, 404, 200, 201, 202, 400 etc. 
+i> 2xx-Successfull: the request is successfull and the browser has recieved the expected information.
+ii> 3xx-Redirection: the page or you have been redirected and completion of the request requires further action.
+iii> 4xx-Client Error: the website or page could not be reached, either the page is unavailable for the request or the request contains bad syntax.
+iv> 5xx-Server Error: While the request appears to be valid, the server could complete the request.
+
+Q8: What does cache control on http response mean?
+Ans: Cache control http header is a header which specifies caching policies of server response as well as client request. It gives information about the manner in which the particular resource is cached, location of the cached resource, and time to live. 
+
+Q9: What is polling?
+Ans: Polling is a technique where we check for fresh data over a given interval by periodically making API requests to a server. A real-time example for this is when we use map for cabs, the map should update every 1 sec for driver's location so we can make and API request over every 1 sec to update the information.
+
+Q10: What is long polling?
+Ans: Long polling is just like polling except here we have to make API requests until a condition is met. we can use this in authorization where we are using third party organization for authorization, we can make API requests until the request is accepted and the third party organization will reply. 
+
+Q11: What are web sockets?
+Ans: Web Sockets are defined as a two-way communication between the server and the client, which means both server and client can exchange data t the same time. It's a full duplex communication protocol that operates over http through single TCP/IP socket connection. the connection between server and client will be alive until either client or server will close the connection from their side. 
+
+Q12: How is web sockets different from HTTP?
+Ans: WebSocket is a bidirectional protocol whereas HTTP is an unidirectional protocol. We can reuse the same established channel with websocket whereas in HTTP once http request has been made and getting the response the connection gets closed. Most of the services like monitoring, trading, notification services use websocket to recieve data on single communication channel whereas HTTP is only used by some RESTfull application. WebSocket is faster as compared to HTTP.
+
+Q13: What is HTTPS?
+Ans: HTTPS is a secure version of HTTP to send/recieve data between server and browser. HTTPS uses the SSL/TLS protocol for encryption and authentication. HTTPS uses port 443 instead of HTTP port 80. The HTTPS protocol makes it possible for website to securely transmit sensitive data like bank details and login credentials over the internet.
+
+Q14: What is Cross Origin Resource Sharing? ( CORS ) Why do we need it?
+Ans: Cross Origin Resource Sharing allows us to make request from one website to another website in the browser which is mainly prohibited by another browser policy SOR. CORS defines a way in which a browser and server can interact to determine whether it is safe to allow the cross-origin request.
+
+Q15: What does Access-Control-Allow-Origin header do?
+Ans: The Access-Control-Allow-Origin response header indicates wheather the response can be share with requesting code from the given origin. 
+
+Q16: What is clickjacking? How do you fix it?
+Ans: Clickjacking is an attack that tricks a user into clicking a webpage element which disguised as another element. This can cause user getting malware attack, loosing sensitive data, visiting malicious websites. Clickjacking can be disallow by setting HTTP headers that direct browser to not allow the target website to be iframed. This can be done by configuring server on the following two response headers: X-frame-Options and Content-Security-Policy. It can also be done using javascript code that kills the iframe, javascript can burst the frame.
+
+Q17: What are some performance metrics for your website?
+Ans: Some performance metrics for my websites are: 
+i> User satisfaction: It's measurement of users level of satisfaction based on the response time of request when interacting with the website.
+ii> Time to Interacive: It measures the time until the application is rendered and user can respond to it.
+iii> Page speed and Load time: It measures the total time it takes to download and display the entire content of a web page.
+iv> Error rate: It's a performance metric that tracks the percentage of request issues you have in relation to the total number of requests. 
+v> Hard utilization: We must keep track of hardwares, how the site performs when ran on different devices.
+
+Q18: What does the following term mean?
+ i> Time to first byte: It's how long it takes for the first bit to reach a user's web browser.
+ ii> Page load time: It's how much time your page takes to load on user's browser. The lesser it will be the more good impact will be on user.
+
+Q19: What do CDN or Content Delivery Networks do? When do you need a CDN?
+Ans: A CDN is a globally distributed network of web servers whose purpose is to provide fast content delivery. The content is stored through CDN so that when user asks the content the content replicates as fast as it can from the closest geographical location. Whenever a website or a mobile application is used by more than one user at a time we need CDN. For example: e-commerce sites, their are mutltiple user's at a time using e-commerce sites. So CDN provides faster load time, better site performance, quickly scalable even if it's heavy traffic. 
+
+Q20: What is the difference between Client Side Renderring and Server Side Renderring?
+Ans: When an HTML file receives from server and renders it, this is called server side rendering. In server side rendering the user makes a request and then server prepares the HTML page by fetching the required data from the database and sends to the user's machine over the internet. However when building large applications it's not sufficient for DOM manipulation it does not define a clear structure and organize for your app. So client side rendering comes there, it's mostly about JS libraries and frameworks. It means all the rendering oart is done in your browser rather than the website's server, so now it will fetch all the required files only and renders it in your browser. The first page will be slow but after that every other page will render fast. 
+
+Q21: What is Progressive Renderring?
+Ans: Progressive rendering is a rendering of the the small portion or the page. Instead of rendering the whole page it will render only a small selected portion of the page. It is fast because there is no need of rerendering whole page just for small part. 
+
+Q22: What is the difference between Preloading and Prefetching resources?
+Ans: Preloading tells the browser to download and cache a resource in advance when you need that resource in few seconds, it downloads the file as soon as possible as the priority. Whereas prefetching is asking the browser to download it and cachethe resource but this time it's not downloading as the priority, so it doesn't interfere with other more important resources. After downloading both Preloading and prefetching doesn't effect the current resource but they will show immediately up when they are required. 
+
+Q23: What are service workers?
+Ans: Service workers work as a proxy server which acts between web applications, browser and the network. they are responsile to act for creating offline experiences, taking appropriate actions when network is available and update assets on the server. It works like a worker against origin and a path. It is in the form of js file that can control the webpage it is associated with. It intercepts and modify navigation and requests created by the user, it takes total control over how the webpage should behave on certain actions.
