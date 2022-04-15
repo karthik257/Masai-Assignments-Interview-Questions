@@ -1,0 +1,47 @@
+Create a function called toggler using closures
+function toggler(){ ... }
+const toggle = toggler(1,2,3)
+toggle() // 1 toggle() // 2 toggle() // 3 // the next time you toggle it the output is 1 toggle() // 1 toggle() // 2
+sol = function toggler(){
+     let index = -1;
+     return function(){
+         index += 1;
+         if(index >= arguments.length)
+             index = 0;
+         console.log(arguments[index])
+     }
+    }
+const toggleArr = toggler(1,2,3)
+toggleArr();
+toggleArr();
+toggleArr();
+toggleArr();
+
+
+What are IIFE?
+An Immediate-Invoked Function Expression (IIFE) is a function that is executed instantly after it's defined. This pattern has been used to alias global variables, make variables and functions private and to ensure asynchronous code in loops are executed correctly. 
+
+What is currying?
+sol=Currying is the process of breaking down a function into multiple arguments in such a way that each function will take one argument and the final function called will return the result. 
+
+
+
+Write a program to throttle using closures
+function throttler( callback, duration ){
+}
+document.addEventListener("element", throttler( callback, 1000 )
+sol= const callback = () => {
+    console.log("Clicked!!")
+}
+
+function throttler(callback, duration) {
+    let last = 0;
+    return function(){
+        if(Date.now()-last> duration){
+            last = Date.now();
+            callback.apply(this, arguments);
+        }
+    }
+}
+document.addEventListener("element", throttler(callback, 1000))
+
