@@ -1,0 +1,162 @@
+What is hoisting?
+Hoisting moves the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
+
+What is scoping?
+Scope determines the accessibility (visibility) of variables.
+JavaScript has 3 types of scope:
+Block scope = Variables(let,const) declared inside a { } block cannot be accessed from outside the block:
+Function scope = Variables (var,let,const) defined inside a function are not accessible (visible) from outside the function.
+Global scope = A variable declared outside a function, becomes GLOBAL.
+
+How are var, let const different?
+The scope of the var keyword is the global or function scope.
+The scope of a let variable is only block scoped. It can’t be accessible outside the particular block. The scope of a let variable is only block scoped. It can’t be accessible outside the particular block
+The const keyword has all the properties that are the same as the let keyword, except the user cannot update it.
+
+
+What are the two main differences in arrow functions?
+a)Arrow functions dont have their own "this". Example:
+let user = {
+    name: "GFG",
+    gfg1:() => {
+        console.log("hello " + this.name); // no 'this' binding here
+    },
+    gfg2(){       
+        console.log("Welcome to " + this.name); // 'this' binding works here
+    }  
+ };
+user.gfg1();
+user.gfg2();
+b) Arrow functions cannot be used as constructor functions by using new keyword
+
+
+Does Call apply bind work for arrow functions?
+Since arrow functions do not have their own this, call apply bind wont work
+
+
+What does call apply bind do?
+instead of writing same functions in many objects, its better to write a function separately and then link it with the objects. This is done through call apply bind 
+functionName.call(obj1,param1,param2) //separated by comas
+functionName.apply(obj1,[param1,param2]) // uses array for param
+let printLater = functionName.bind(obj1,[param1,param2]) //doesnt invoke immediately 
+
+
+What are closures?
+A closure is a function having access to the parent scope, even after the parent function has closed.
+
+
+Write a program to debounce a search bar?
+window.addEventListener("load", ()=>{
+    const input = document.queryselector("#input");
+    input.addEventListener("keyup", debounce(function(){
+        console.log("This runs after 3 seconds of the value entered in search bar")
+    }, 3000))
+})
+
+
+Write a program to throttle a search bar?
+sol =
+window.addEventListener("load",  ()=> {
+    const input = document.queryselector("#input");
+    input.addEventListener("keyup", throttler(function(){
+        console.log("This runs for every key pressed in the search bar")
+    }));
+})
+
+
+create a custom method for an array called myMap, use prototype chain to achieve this
+const arr = [1,2,3]
+arr.myMap(a=>a*5)
+// [ 5, 10, 15 ]
+it should work in this manner
+sol = function Array(arr){
+            this.arr = arr;
+        }
+        Array.prototype.myMap = function (){
+            console.log(this.arr.map(a=>a*5));
+        }
+        var value = new Array([1,2,3]);
+        value.myMap()
+
+
+What is event bubbling?
+Event bubbling is a method of event propagation in the HTML DOM API when an event is in an element inside another element, and both elements have registered a handle to that event. It is a process that starts with the element that triggered the event and then bubbles up to the containing elements in the hierarchy.
+
+
+What is event loop?
+The event loop is a single-threaded loop that watches the call stack and checks if there's any code to run in the task queue. If the call stack is empty and there're callback functions in the task queue, then they'll be dequeued from the task queue and run by pushing them to the call stack.
+
+
+
+Explain promises to a 5 year old, with simple examples
+Promise is when you promise something to do, so the result will be either the work will complete or the work will not complete, but with that the other tasks will be also done. For example: a teacher sent his student to library to bring a book, so he will either bring it or not bring it. Until then teacher continued his work. So both tasks ran separately and completed. 
+
+
+
+Write a function called sleep that will return a promise, if you do not provide a number to the function, then it will return an error and goto the catch block
+sleep(500).then(res=> {
+ console.log('slept for ${res} milli seconds})
+})
+.then(errr=>{
+  console.log(err)
+})
+
+
+what does async await mean?
+Async/Await is the extension of promises which we get as a support in the language. 
+Async-await keywords enable asynchronous function and it's promise based behaviour. Async function will either execute until the promise is either fullfilled or rejected. It's a way to write your code in a more cleaner style.
+
+
+
+What does the this keyword mean?
+What is the this in JavaScript?
+In JavaScript, the this keyword refers to an object. Which object depends on how this is being invoked (used or called). The this keyword refers to different objects depending on how it is used: In an object method, this refers to the object. Alone, this refers to the global object.
+
+
+What are classes? what are getters and setters?
+Ans: Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics.
+In JavaScript, accessor properties are methods that get or set the value of an object. For that, we use these two keywords: get - to define a getter method to get the property value. set - to define a setter method to set the property value.
+
+
+
+How do you declare private and static variables in classes
+private variable use "#" in name of the variable. Static variable use static keyword.
+
+
+
+Create a Calculator class, it should be able to add, reduce multiply and divide. it should have a value getter, and that should return final output. keep the history of changes made as well, and keep that private, and a user should be able to see previous changes made to the value
+class Calculator{
+    constructor(a,b){
+        this.a=a 
+        this.b =b
+    }
+    add(){  
+        return this.a+this.b
+    }
+    sub(){  
+        return this.a-this.b
+    }
+    mul(){  
+        return this.a*this.b
+    }
+    div(){  
+        return this.a/this.b
+    }
+}
+const calc = new Calculator(10,20)
+console.log(calc.add())
+console.log(calc.sub())
+console.log(calc.mul())
+console.log(calc.div())
+
+What is currying?
+Currying is the process of breaking down a function into multiple arguments in such a way that each function will take one argument and the final function called will return the result. 
+
+
+
+Write a program to flatten an array
+// input: [ 1, [ 2, 3 ], [ 3 ], [ [ [ 5]],  6]  ]
+// output => [ 1, 2, 3, 3, 5, 6 ]
+ 
+const arr = [1, [ 2, 3 ], [ 3 ], [ [ [ 5]],  6]  ];
+     console.log(arr.flat().flat().flat());
