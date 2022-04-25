@@ -1,0 +1,150 @@
+Explain in brief what is node js?
+Node.js is an open-source server side runtime environment built on Chrome's V8 JavaScript engine. It provides an event driven, non-blocking (asynchronous) I/O and cross-platform runtime environment for building highly scalable server-side applications using JavaScript.
+
+How is node js non blocking?
+The event loop is what allows Node. js to perform non-blocking I/O operations despite the fact that JavaScript is single-threaded. The loop, which runs on the same thread as the JavaScript code, grabs a task from the code and executes it.
+
+What is throughput?
+Throughput is a measure of how many units of information a system can process in a given amount of time. It is applied broadly to systems ranging from various aspects of computer and network systems to organizations.
+
+How is Node js having high IO throughput?
+If the processor has to regularly wait for data to arrive, the task is said to be I/O intensive. Node. js's asynchronous nature however makes it really good at I/O intensive tasks, as it can keep doing other work while it waits for the data to arrive asynchronously.
+
+What are CPU intensive tasks?
+So what are CPU Intensive tasks? They are complex user actions that eat up more RAM. A few of such processes can shut down your server entirely. Naturally, you want to make sure that your app or website is 'smart' enough to handle different kinds of tasks, for each individual user request
+
+How can you end up blocking your main thread in node.js?
+The Main Thread is where the browser does most of the work needed to display a page. If we keep the Main Thread blocked, it can't perform its crucial tasks. This leads to slow load times, unresponsive pages, and a bad user experience.
+
+What is the event loop?
+Event loop is an endless loop, which waits for tasks, executes them and then sleeps until it receives more tasks. The event loop executes tasks from the event queue only when the call stack is empty i.e. there is no ongoing task. The event loop allows us to use callbacks and promises.
+
+What are different phases in event loop?
+The Event Loop contains six main phases: timers, I/O callbacks, preparation / idle phase, I/O polling, setImmediate() callbacks execution, and close events callbacks.
+
+What is process.tick?
+Every time the event loop takes a full trip, we call it a tick. When we pass a function to process.nextTick() , we instruct the engine to invoke this function at the end of the current operation, before the next event loop tick starts
+
+When can process.tick starve your event loop?
+Recursively/Repeatedly adding events to the nextTick queue using process.nextTick function can cause I/O and other queues to starve forever. 
+
+What is the difference between setTimeout and setInterval?
+The only difference is , setTimeout() triggers the expression only once while setInterval() keeps triggering expression regularly after the given interval of time. (unless you tell it to stop). To stop further calls, we should call clearInterval(timerId) 
+
+
+How can you make a network request with http module from the backend?
+Using AXIOS module
+Using SuperAgent
+Using Node-Fetch module
+Using HTTP module
+
+How can you create your own events?
+Node.js allows us to create and handle custom events easily by using events module. Event module includes EventEmitter class which can be used to raise and handle custom events.
+Example:
+// get the reference of EventEmitter class of events module
+var events = require('events');
+
+//create an object of EventEmitter class by using above reference
+var em = new events.EventEmitter();
+
+//Subscribe for FirstEvent
+em.on('FirstEvent', function (data) {
+    console.log('First subscriber: ' + data);
+});
+
+// Raising FirstEvent
+em.emit('FirstEvent', 'This is my first Node.js event emitter example.');
+
+
+
+What are clusters?
+Clusters of Node.js processes can be used to run multiple instances of Node.js that can distribute workloads among their application threads. When process isolation is not needed, use the worker_threads module instead, which allows running multiple application threads within a single Node.js instance.
+The cluster module allows easy creation of child processes that all share server ports.
+
+
+How does your Node.js application handle scale? Elaborate
+Scalability in Node.js is not an afterthought. It’s something that’s baked into the core of the runtime. Node is named Node to emphasize the idea that a Node application should comprise multiple small distributed nodes that communicate with each other.
+Node’s cluster module not only provides an out-of-the-box solution to utilizing the full CPU power of a machine, but it also helps with increasing the availability of your Node processes and provides an option to restart the whole application with a zero downtime. This article covers all that goodness and more.
+There are mainly three different things we can do to scale an application:
+1 — Cloning
+The easiest thing to do to scale a big application is to clone it multiple times and have each cloned instance handle part of the workload. This strategy is the minimum you should do and Node.js has the built-in module, cluster, to make it easier for you to implement the cloning strategy on a single server.
+2 — Decomposing
+We can also scale an application by decomposing it based on functionalities and services. This means having multiple, different applications with different code bases and sometimes with their own dedicated databases and User Interfaces.
+This strategy is commonly associated with the term Microservice, where micro indicates that those services should be as small as possible, but in reality, the size of the service is not what’s important but rather the enforcement of loose coupling and high cohesion between services. The implementation of this strategy is often not easy and could result in long-term unexpected problems, but when done right the advantages are great.
+3 — Splitting
+We can also split the application into multiple instances where each instance is responsible for only a part of the application’s data. This strategy is often named horizontal partitioning, or sharding, in databases. Data partitioning requires a lookup step before each operation to determine which instance of the application to use. For example, maybe we want to partition our users based on their country or language. We need to do a lookup of that information first
+
+
+
+What is the difference between readFile and readFileSync?
+readFile() method which reads a file, but parallelly it continues to compile the remaining program too, after that it calls the fs. readFileSync() method which reads another file, when calling the readFileSync() method the compiler stops other parallel process
+
+What are CORS? How do you configure them? Why do you need them?
+Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
+To enable CORS for all the request you can simply use the cors middleware before configuring your routes: const express = require('express'); const cors = require('cors'); const app = express();
+
+
+What is rate limiting?
+Rate limiting is a very powerful feature for securing backend APIs from malicious attacks and for handling unwanted streams of requests from users. In general terms, it allows us to control the rate at which user requests are processed by our server.
+In order that for rate limiting to be implemented, there must be a clearly defined constraint (limit), which could be based on any of the following:
+1. Users: Here the constraint is specific to a user and is implemented using a unique user identifier
+2. Location: Here the constraint is based on geography and is implemented based on the location from which the request was made
+3. IP addresses: Here the constraint is based on the IP address of the device that initiates a request
+
+
+How does middlewares work in express?
+Middleware functions are functions that have access to the request object ( req ), the response object ( res ), and the next function in the application's request-response cycle. The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware.
+
+
+What is the difference between Encryption and Hashing?
+Since encryption is two-way, the data can be decrypted so it is readable again. Hashing, on the other hand, is one-way, meaning the plaintext is scrambled into a unique digest, through the use of a salt, that cannot be decrypted.
+
+
+What is the difference between https and http?
+HTTPS is HTTP with encryption. The only difference between the two protocols is that HTTPS uses TLS (SSL) to encrypt normal HTTP requests and responses. As a result, HTTPS is far more secure than HTTP. A website that uses HTTP has http:// in its URL, while a website that uses HTTPS has https://
+
+
+What is TLS?
+Transport Layer Security (TLS) encrypts data sent over the Internet to ensure that eavesdroppers and hackers are unable to see what you transmit which is particularly useful for private and sensitive information such as passwords, credit card numbers, and personal correspondence.
+
+What is AES?
+The Advanced Encryption Standard (AES) is used in order to protect data against unauthorised access and to encrypt this. The cryptographic process key of varying lengths is utilised for this purpose.
+
+
+What is JWT Token? Why do we need to use JWT? What are some pros and cons?
+JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
+Use = JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
+Pros
+1. No Database Table : This implies fewer DB queries, which implies faster response time. In case we  are using paid services like DynamoDb that charge per query basis, JWT might reduce the costs marginally. But these can be resolved using tools like Redis in case of sessions
+2. Simpler to use if careful : If our  architecture doesn’t user client Sessions and our  security basics are clear, the development time in case of JWT is faster using the existing libraries.
+3. Used across services : we  can have one authorization server that deals with the Login/Registration and generates the token, all the subsequent requests will need not have to go to the authorization server as the only the Auth-server will have have the private key, and rest of the severs will have the public-key to verify the signature.
+This is really useful in case of corporate systems where in the authorization server is in a secure environment. e.g. a user needs to be connected to the intranet to login but once done, the public servers can verify and proceed on.
+Similar setup can be used for OAuth implementation.
+The best part is that there is no connection between the the auth-server and the rest of the servers other than the pre-defined public key.
+Cons 
+1. Compromised Secret Key = The best and the worst thing about JWT is that it relies on just one Key. Consider that the Key is leaked by a careless or a rogue developer/administrator, the whole system is compromised!
+2. Cannot push Messages to clients (Identifying clients from server) : As we have no record about the logged-in clients on the DB end, we cannot push messages to all the clients.
+3. Crypto-algo can be deprecated: JWT relies completely on the Signing algorithm. Now, though it is not frequent, but in the past many Encryption/Signing algorithms have been deprecated.
+
+
+What is salting? Where do we store salt?
+Salting is simply the addition of a unique, random string of characters known only to the site to each password before it is hashed, typically this “salt” is placed in front of each password. The salt value needs to be stored by the site, which means sometimes sites use the same salt for every password.
+
+What is the difference between Authorisation and Authentication?
+Authentication is the process of verifying who someone is, whereas authorization is the process of verifying what specific applications, files, and data a user has access to.
+
+
+What is difference between JS on the browser and node?
+- Node.js has a huge advantage: the comfort of programming everything - the frontend and the backend - in a single language.
+- In the browser, most of the time what you are doing is interacting with the DOM, or other Web Platform APIs like Cookies. Those do not exist in Node.js, of course. You don't have the document, window and all the other objects that are provided by the browser.
+- And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the filesystem access functionality.
+- Another big difference is that in Node.js you control the environment. Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on. Compared to the browser environment, where you don't get the luxury to choose what browser your visitors will use, this is very convenient.
+- This means that you can write all the modern ES6-7-8-9 JavaScript that your Node.js version supports.
+- Since JavaScript moves so fast, but browsers can be a bit slow to upgrade, sometimes on the web you are stuck with using older JavaScript / ECMAScript releases.
+- You can use Babel to transform your code to be ES5-compatible before shipping it to the browser, but in Node.js, you won't need that.
+- Another difference is that Node.js supports both the CommonJS and ES module systems (since Node.js v12), while in the browser we are starting to see the ES Modules standard being implemented.
+- In practice, this means that you can use both require() and import in Node.js, while you are limited to import in the browser.
+
+What is V8?
+V8 is the name of the JavaScript engine that powers Google Chrome. It's the thing that takes our JavaScript and executes it while browsing with Chrome. V8 provides the runtime environment in which JavaScript executes. The DOM, and the other Web Platform APIs are provided by the browser.
+
