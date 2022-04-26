@@ -1,0 +1,139 @@
+Give an example where call apply bind is. required?
+Call invokes the function and allows you to pass in arguments one by one.
+Apply invokes the function and allows you to pass in arguments as an array.
+Bind returns a new function, allowing you to pass in a this array and any number of arguments.
+We use call apply bind to borrow another object’s methods or to create a custom value of this
+
+What is the difference between readFile and readFileSync?
+readFile() method which reads a file, but parallelly it continues to compile the remaining program too, after that it calls the fs. readFileSync() method which reads another file, when calling the readFileSync() method the compiler stops other parallel process
+
+
+What does process in node.js mean?
+Node. js provides the facility to get process information such as process id, architecture, platform, version, release, uptime, upu usage etc. It can also be used to kill process, set uid, set groups, unmask etc. 
+
+
+Explain what node.js is?
+Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser.
+
+
+What is the difference of JS from browser to JS on node.js
+- Node.js has a huge advantage: the comfort of programming everything - the frontend and the backend - in a single language.
+- In the browser, most of the time what you are doing is interacting with the DOM, or other Web Platform APIs like Cookies. Those do not exist in Node.js, of course. You don't have the document, window and all the other objects that are provided by the browser.
+- And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the filesystem access functionality.
+- Another big difference is that in Node.js you control the environment. Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on. Compared to the browser environment, where you don't get the luxury to choose what browser your visitors will use, this is very convenient.
+- This means that you can write all the modern ES6-7-8-9 JavaScript that your Node.js version supports.
+- Since JavaScript moves so fast, but browsers can be a bit slow to upgrade, sometimes on the web you are stuck with using older JavaScript / ECMAScript releases.
+- You can use Babel to transform your code to be ES5-compatible before shipping it to the browser, but in Node.js, you won't need that.
+- Another difference is that Node.js supports both the CommonJS and ES module systems (since Node.js v12), while in the browser we are starting to see the ES Modules standard being implemented.
+- In practice, this means that you can use both require() and import in Node.js, while you are limited to import in the browser.
+
+
+Write three different ways to reverse a string in Javascript? a. using inbuilt method, b. iteratively, c. recursively
+a) inbuilt 
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+reverseString("hello");
+
+b) Using interative
+function reverseString(str) {
+    var newString = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
+}
+reverseString('hello');
+
+c) Recursion 
+function reverseString(str) {
+  if (str === "")
+    return "";
+  else
+    return reverseString(str.substr(1)) + str.charAt(0);
+}
+reverseString("hello");
+
+
+Write a program to check two objects are equal ( deep equal )
+user1 = {
+    name: "John",
+    address: {
+        line1: "55 Green Park Road",
+        line2: "Purple Valley"  
+    }
+}
+user2 = user1;
+console.log("deepEqual(user1, user2)", deepEqual(user1, user2));
+
+
+Using classes write a program to build a Parking Lot.
+class SlotType {
+  static big = "B";
+  static medium = "M";
+  static small = "S";
+}
+
+class CarType {
+  static big = 1;
+  static medium = 2;
+  static small = 3;
+}
+
+/**
+ *
+ */
+class ParkingSystem {
+  parking = new Map();
+  constructor(bigSlots, mediumSlots, smallSlots) {
+    this.bigSlots = bigSlots;
+    this.mediumSlots = mediumSlots;
+    this.smallSlots = smallSlots;
+    console.log(this);
+  }
+
+  /**
+   * big car = 1
+   * medium car = 2
+   * small car  = 3
+   * @param {*} carType
+   */
+  addCar(carType) {
+    const key = this.getSlotKey(carType);
+    const noOfParkedCar = this.parking.get(key) || 0;
+    const slot = this.getSpecificSlot(carType);
+    if (noOfParkedCar < slot) {
+      this.parking.set(this.getSlotKey(carType), noOfParkedCar + 1);
+      return { carType: carType, parked: true };
+    } else {
+      return { carType: carType, parked: false };
+    }
+  }
+
+  getSlotKey(carType) {
+    return carType === CarType.big
+      ? SlotType.big
+      : carType === CarType.medium
+      ? SlotType.medium
+      : SlotType.small;
+  }
+
+  getSpecificSlot(carType) {
+    return carType === CarType.big
+      ? this.bigSlots
+      : carType === CarType.medium
+      ? this.mediumSlots
+      : this.smallSlots;
+  }
+}
+
+const a = new ParkingSystem(1, 2, 2);
+console.log(a.addCar(2));
+console.log(a.addCar(2));
+console.log(a.addCar(2));
+console.log(a.addCar(3));
+console.log(a.addCar(1));
+console.log(a.addCar(1));
+console.log(a.addCar(3));
+console.log(a.addCar(3));
+console.log(a.addCar(1));
