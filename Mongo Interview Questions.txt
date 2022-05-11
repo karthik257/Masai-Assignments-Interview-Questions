@@ -1,30 +1,107 @@
 What is SQL Databases? What are some companies who uses Mongo, what type of applications are these?
+A database in SQL Server is made up of a collection of tables that stores a specific set of structured data. A table contains a collection of rows, also referred to as records or tuples, and columns, also referred to as attributes.eBay,MetLife,Shutterfly,Aadhar,Apple uses mongodb. These are data which are not related to each other
+
 What is NoSQL Databases? What are some companies who uses Mongo, what type of applications are these?
+NoSQL databases (aka "not only SQL") are non-tabular databases and store data differently than relational tables. NoSQL databases come in a variety of types based on their data model. The main types are document, key-value, wide-column, and graph.
+eBay,MetLife,Shutterfly,Aadhar,Apple uses mongodb. These are data which are not related to each other
+
 What is the difference between SQL and NoSQL databases?
+a)Type – SQL databases are primarily called as Relational Databases (RDBMS); whereas NoSQL database are primarily called as non-relational or distributed database. 
+b) Language – SQL databases defines and manipulates data based structured query language (SQL). Seeing from a side this language is extremely powerful. SQL is one of the most versatile and widely-used options available which makes it a safe choice especially for great complex queries. But from other side it can be restrictive. SQL requires you to use predefined schemas to determine the structure of your data before you work with it. Also all of your data must follow the same structure. This can require significant up-front preparation which means that a change in the structure would be both difficult and disruptive to your whole system. A NoSQL database has dynamic schema for unstructured data. Data is stored in many ways which means it can be document-oriented, column-oriented, graph-based or organized as a KeyValue store. This flexibility means that documents can be created without having defined structure first. Also each document can have its own unique structure. The syntax varies from database to database, and you can add fields as you go. 
+c)The Scalability – In almost all situations SQL databases are vertically scalable. This means that you can increase the load on a single server by increasing things like RAM, CPU or SSD. But on the other hand NoSQL databases are horizontally scalable. This means that you handle more traffic by sharding, or adding more servers in your NoSQL database. It is similar to adding more floors to the same building versus adding more buildings to the neighborhood. Thus NoSQL can ultimately become larger and more powerful, making these databases the preferred choice for large or ever-changing data sets. 
+d) The Structure – SQL databases are table-based on the other hand NoSQL databases are either key-value pairs, document-based, graph databases or wide-column stores. This makes relational SQL databases a better option for applications that require multi-row transactions such as an accounting system or for legacy systems that were built for a relational structure. 
+e) Property followed – SQL databases follow ACID properties (Atomicity, Consistency, Isolation and Durability) whereas the NoSQL database follows the Brewers CAP theorem (Consistency, Availability and Partition tolerance). 
+f)Support – Great support is available for all SQL database from their vendors. Also a lot of independent consultations are there who can help you with SQL database for a very large scale deployments but for some NoSQL database you still have to rely on community support and only limited outside experts are available for setting up and deploying your large scale NoSQL deployments. 
+Some examples of SQL databases include PostgreSQL, MySQL, Oracle and Microsoft SQL Server. NoSQL database examples include Redis, RavenDB Cassandra, MongoDB, BigTable, HBase, Neo4j and CouchDB. 
+
 What are some features of MongoDB?
+a) Ad-hoc queries for optimized, real-time analytics=Optimizing the way in which ad-hoc queries are handled can make a significant difference at scale, when thousands to millions of variables may need to be considered. This is why MongoDB, a document-oriented, flexible schema database, stands apart as the cloud database platform of choice for enterprise applications that require real-time analytics. With ad-hoc query support that allows developers to update ad-hoc queries in real time, the improvement in performance can be game-changing.
+b) Indexing appropriately for better query executions = Without the right indices, a database is forced to scan documents one by one to identify the ones that match the query statement. But if an appropriate index exists for each query, user requests can be optimally executed by the server. MongoDB offers a broad range of indices and features with language-specific sort orders that support complex access patterns to datasets.
+c) Replication for better data availability and stability =Replication allows you to sidestep these vulnerabilities by deploying multiple servers for disaster recovery and backup. Horizontal scaling across multiple servers that house the same data (or shards of that same data) means greatly increased data availability and stability. Naturally, replication also helps with load balancing. When multiple users access the same data, the load can be distributed evenly across servers.
+d) Sharding =Like replication via replication sets, sharding in MongoDB allows for much greater horizontal scalability. Horizontal scaling means that each shard in every cluster houses a portion of the dataset in question, essentially functioning as a separate database. The collection of distributed server shards forms a single, comprehensive database much better suited to handling the needs of a popular, growing application with zero downtime.
+e) Load balancing= Fortunately, via horizontal scaling features like replication and sharding, MongoDB supports large-scale load balancing. The platform can handle multiple concurrent read and write requests for the same data with best-in-class concurrency control and locking protocols that ensure data consistency. There’s no need to add an external load balancer—MongoDB ensures that each and every user has a consistent view and quality experience with the data they need to access
+
+
 What are aggregate queries?
+Aggregation is a way of processing a large number of documents in a collection by means of passing them through different stages. The stages make up what is known as a pipeline. The stages in a pipeline can filter, sort, group, reshape and modify documents that pass through the pipeline
+
 What are pipelines in aggregation?
+The aggregation pipeline refers to a specific flow of operations that processes, transforms, and returns results. In a pipeline, successive operations are informed by the previous result. In the above example, input refers to one or more documents.
+
 How do you do aggregate queries?
+Group values from multiple documents together.
+Perform operations on the grouped data to return a single result.
+Analyze data changes over time.
+
 How can you group by a particular value in MongoDB?
+MongoDB group by is used to group data from the collection, we can achieve group by clause using aggregate function and group method in MongoDB. While using aggregate function with group by clause query operations is faster as normal query, basically aggregate function is used in multiple condition. We can group by single as well as multiple field from the collection, we can use $group operator in MongoDB to group fields from the collection and returns the new document as result. We are using $avg, $sum, $max, $min, $push, $last, $first and $addToSet operator with group by in MongoDB.
+
 How can you paginate on MongoDB?
+Using below methods we can use pagination
+Using skip and limit method.
+Using the find and limit method.
+Pagination using slice.
+Pagination by creating an index on a specified field.
+Pagination by using the sort method.
+Pagination by using the range queries.
+
 How can you sort in MongoDB?
+To sort documents in MongoDB, you need to use sort() method. The method accepts a document containing a list of fields along with their sorting order. To specify sorting order 1 and -1 are used. 1 is used for ascending order while -1 is used for descending order.
+
+
 What is indexing in MongoDB? Why do we need to use indexing? What are pros and cons for indexing?
+An index in MongoDB is a special data structure that holds the data of few fields of documents on which the index is created. Indexes improve the speed of search operations in database because instead of searching the whole document, the search is performed on the indexes that holds only few fields.The biggest advantage of indexing is that it speeds up your find, update and delete queries. Quite naturally because it is easier to search for the elements based on the indexed field. The disadvantages of indexing is that 1. It takes up memory (obviously).
+
 Write the query for indexing a field in MongoDB?
+MongoDB provides a method called createIndex() that allows user to create an index. The key determines the field on the basis of which you want to create an index and 1 (or -1) determines the order in which these indexes will be arranged(ascending or descending).
+
 What is the improvement in performance in MongoDB?
+a) Storing the results of frequent sub-queries on documents to reduce read load.
+b) Making sure that you have indices on any fields you regularly query against.
+c) Looking at your logs to identify slow queries, then check your indices.
+
 What is the data structure used for indexing?
+MongoDB indexes use a B-tree data structure.
+
+
 Are values sorted in indexes?
+Indexes in MongoDB are stored in a B-tree structure, where each index entry points to a specific location on-disk. Using a B-tree structure also means that a MongoDB index is stored in a sorted order, always traversed in-order, and is cheap for MongoDB to fetch a series of documents in a sorted order via indexes
+
 What are Replica Sets in MongoDB?
+A replica set in MongoDB is a group of mongod processes that maintain the same data set. Replica sets provide redundancy and high availability, and are the basis for all production deployments. This section introduces replication in MongoDB as well as the components and architecture of replica sets.
+
 Explain the structure of ObjectID in MongoDB.
+An ObjectId in MongoDB is a 12-byte BSON type. In the 12-byte structure, the first 4 bytes of the ObjectId represent the time in seconds since the UNIX epoch. The next 3 bytes of the ObjectId represent the machine identifier. The next 2 bytes of the ObjectId represent the process ID.
+
 By default, which index is created by MongoDB for every collection?
+MongoDB creates a unique index on the _id field during the creation of a collection. The _id index prevents clients from inserting two documents with the same value for the _id field.
+
 In which format MongoDB represents document structure?
+In BSON format MongoDB represents document structure.
+
 What is the limitation of a document in MongoDB?
+The maximum BSON document size is 16 megabytes. The maximum document size helps ensure that a single document cannot use excessive amount of RAM or, during transmission, excessive amount of bandwidth. To store documents larger than the maximum size, MongoDB provides the GridFS API.
+
 What is the difference between MongoDB and Redis database?
+MongoDB is a document-oriented, disk-based database optimized for operational simplicity, schema-free design and very large data volumes. Redis is an in-memory, persistent data structure store that enables developers to perform common operations with minimal complexity and maximum performance.
+
 How can you add references between multiple collections?
+In MongoDB, we can combine data of multiple collections into one through the $lookup aggregation stage. In this, you have to specify which collection you want to join with the current collection and select the field that matches in both the collection.
+
 What are lookup in aggregation for MongoDB?
+Aggregation in MongoDB is an operation that groups values from multiple documents together and can perform a variety of operations on the grouped data to return a single result. And $lookup is one of the operations which aggregation performs
+
 What are graph lookups?
+Its is an extended version of $lookup and has enhanced capabilities which are used to perform a recursive search on a collection in an array with multiple values/fields.
+
 What is the alternative for lookups in MongoDB?
+he MongoDB Lookup operator, by definition, “Performs a left outer join to an unshared collection in the same database to filter in documents from the “joined” collection for processing.” Simply put, using the MongoDB Lookup operator makes it possible to merge data from the document you are running a query on
+
 How can you do one to many relation in MongoDB?
+One-To-Many (1:N) The 1:N relationship describes a relationship where one side can have more than one relationship while the reverse relationship can only be single sided. An example is a Blog where a blog might have many Comments but a Comment is only related to a single Blog.
+
 How can you do many to many relation in MongoDB?
+Many-To-Many (N:M) An N:M relationship is an example of a relationship between two entities where they both might have many relationships between each other. An example might be a Book that was written by many Authors. At the same time an Author might have written many Books
 
 How can you do one to zillion relation in MongoDB?
 The 1:N relationship can be modeled in several different ways using MongoDB. In this chapter we will explore three different ways of modeling the 1:N relationship. The first is embedding, the second is linking and the third is a bucketing strategy that is useful for cases like time series. 
